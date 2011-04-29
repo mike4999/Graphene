@@ -7,7 +7,7 @@ from graphene import wavevector_energy
 import util
 
 # Compute energies
-res = 50j
+res = 100j
 #kx, ky = np.mgrid[-0:7.5:res, -6.5:6.5:res]
 kx, ky = np.mgrid[-5:5:res, -5:5:res]
 e_conduction = wavevector_energy(kx, ky)

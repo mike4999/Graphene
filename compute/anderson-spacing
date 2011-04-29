@@ -3,12 +3,12 @@
 from anderson import hamiltonian
 import numpy as np
 
-ham = hamiltonian(12, 12)
+ham = hamiltonian(16, 16)
 vals = np.linalg.eigvalsh(ham)
 vals = np.sort(vals)
 diff = vals[1:] - vals[:-1]
 
-hist = np.histogram(diff, bins=100, normed=True)
+hist = np.histogram(diff, bins=400, normed=True)
 offset = (hist[1][1]-hist[1][0])/2.0
 
 for freq, val in zip(hist[0], hist[1][:-1]):

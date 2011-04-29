@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./compute/anderson-states > tmp/anderson-states.dat
+./compute/ensemble ./compute/anderson-states 1 > tmp/anderson-states.dat
 
 gnuplot -persist << EOD
 set xlabel 'energy'

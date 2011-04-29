@@ -108,7 +108,7 @@ int main(int argc, char **argv) {
 	srand(time(NULL));
 	
 	// Generate hamiltonian
-	ham = hamiltonian_alloc(10, 10, 1.0);
+	ham = hamiltonian_alloc(12, 12, 1.0);
 	n = ham->size1;
 	
 	// Find eigenvalues and eigenvectors of hamiltonian
@@ -124,7 +124,7 @@ int main(int argc, char **argv) {
 	if(argc >= 2) {
 		if(strcmp(argv[1], "--states") == 0) {
 			// Generate a histogram of the energies
-			gsl_vector *bins = gsl_vector_alloc(50);
+			gsl_vector *bins = gsl_vector_alloc(100);
 			gsl_vector *freqs = gsl_vector_alloc(bins->size);
 			histogram(vals, freqs, bins);
 			normalize(freqs);
