@@ -1,5 +1,21 @@
 3rd project for computational physics class: graphene band structure
 
+== REQUIREMENTS ==
+
+GCC
+GSL
+Python 3
+Numpy
+
+
+== COMPILATION ==
+
+To use the c-anderson-* scripts, the C program must first be compiled.
+To do so, simply run `make`.
+
+
+== USAGE ==
+
 ./anderson-ipr
 Find the inverse participation ratio for graphene using the Anderson
 model.
