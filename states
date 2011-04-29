@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./compute/states
+./compute/states > tmp/states.dat
 
 gnuplot -persist << EOD
 set xlabel 'energy'

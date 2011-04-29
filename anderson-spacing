@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./compute/anderson-spacing
+./compute/anderson-spacing > tmp/anderson-spacing.dat
 
 gnuplot -persist << EOD
 set xlabel 'energy spacing'

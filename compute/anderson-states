@@ -9,6 +9,5 @@ vals = np.linalg.eigvalsh(ham)
 hist = np.histogram(vals, bins=50, normed=True)
 offset = (hist[1][1]-hist[1][0])/2.0
 
-with open('tmp/anderson-states.dat', 'w') as f:
-	for freq, val in zip(hist[0], hist[1][:-1]):
-		f.write('%12g %12g\n' % (val+offset, freq))
+for freq, val in zip(hist[0], hist[1][:-1]):
+	print('%12g %12g' % (val+offset, freq))

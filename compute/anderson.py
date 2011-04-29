@@ -38,6 +38,6 @@ def hamiltonian(xcells, ycells, disorder=1.0):
 
 def ipr(vecs):
 	n = vecs.shape[0]
-	numer = np.sum(np.sum(vecs**2, axis=0)**2)
-	denom = n * np.sum(np.sum(vecs**4, axis=0))
+	numer = np.sum(vecs**2, axis=0)**2
+	denom = n * np.sum(vecs**4, axis=0)
 	return numer/denom

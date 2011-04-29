@@ -20,6 +20,5 @@ hist = np.histogram(merged, bins=bincount, normed=True)
 centers = hist[1][:-1] + (hist[1][1]-hist[1][0])/2.0
 
 # Output data
-f = open('tmp/states.dat', 'w')
 for center, dens in zip(centers, hist[0]):
-	f.write('%12g %12g\n' % (center, dens))
+	print('%12g %12g' % (center, dens))

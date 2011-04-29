@@ -5,4 +5,6 @@ from anderson import hamiltonian, ipr
 
 ham = hamiltonian(8, 8)
 vals, vecs = np.linalg.eigh(ham)
-print(ipr(vecs))
+iprs = ipr(vecs)
+for energy, ipr in zip(vals, iprs):
+	print('%12g %12g' % (energy, ipr))

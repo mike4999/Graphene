@@ -134,20 +134,17 @@ int main(int argc, char **argv) {
 			
 		} else if(strcmp(argv[1], "--ipr") == 0) {
 			// Find the IPR
-			double numer = 0, numer_col;
-			double denom = 0;
-			double x;
+			double numer, denom, x;
 			for(i = 0; i < n; i += 1) {
-				numer_col = 0;
+				numer = 0;
+				denom = 0;
 				for(j = 0; j < n; j += 1) {
 					x = gsl_matrix_get(vecs, j, i);
-					numer_col += pow(x, 2.0);
+					numer += pow(x, 2.0);
 					denom += pow(x, 4.0);
 				}
-				numer += pow(numer_col, 2.0);
+				printf("%12g %12g\n", gsl_vector_get(vals,i), pow(numer,2.0)/(n*denom));
 			}
-			denom *= n;
-			printf("%12g\n", numer/denom);
 			
 		} else if(strcmp(argv[1], "--spacing") == 0) {
 			// Find the spacing

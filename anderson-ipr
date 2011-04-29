@@ -1,3 +1,9 @@
 #!/bin/sh
 
-./compute/anderson-ipr
+./compute/anderson-ipr > tmp/anderson-ipr.dat
+
+gnuplot -persist << EOD
+set xlabel 'energy'
+set ylabel 'IPR'
+plot 'tmp/anderson-ipr.dat' with lines
+EOD
