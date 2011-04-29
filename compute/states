@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+import numpy as np
+import sys
+from graphene import wavevector_energy
+import util
+
+# Compute energies
+res = 500j
+#kx, ky = np.mgrid[-0:7.5:res, -6.5:6.5:res]
+rng = 100
+kx, ky = np.mgrid[-rng:rng:res, -rng:rng:res]
+e_conduction = wavevector_energy(kx, ky)
+e_valence = wavevector_energy(kx, ky, valence=True)
+
+# Output data
+merged = np.array([e_conduction, e_valence]).flatten()
+f = open('tmp/states.dat', 'w')
+for energy in merged:
+	f.write('%12g\n' % (energy,))

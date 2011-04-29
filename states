@@ -1,0 +1,14 @@
+#!/bin/sh
+
+./compute/states
+
+gnuplot -persist << EOD
+binwidth = 0.05
+bin(x,width) = width*floor(x/width) + binwidth/2
+
+set xlabel 'energy'
+set ylabel 'frequency'
+set yrange [0:*]
+set boxwidth binwidth
+plot 'tmp/states.dat' using (bin(\$1,binwidth)):(1.0) smooth freq with boxes
+EOD

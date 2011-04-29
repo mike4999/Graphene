@@ -1,0 +1,11 @@
+#!/bin/sh
+
+./compute/energies
+
+gnuplot -persist << EOD
+set xlabel 'kx'
+set ylabel 'ky'
+set zlabel 'E'
+set hidden3d
+splot 'tmp/energies.dat' using 1:2:4 with pm3d, 'tmp/energies.dat' using 1:2:3 with pm3d
+EOD
