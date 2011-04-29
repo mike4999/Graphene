@@ -1,1 +1,24 @@
 3rd project for computational physics class: graphene band structure
+
+./anderson-ipr
+Find the inverse participation ratio for graphene using the Anderson
+model.
+
+./anderson-spacing
+Plot the density of spacing between energy levels of graphene using
+the Anderson model.
+
+./anderson-states
+Plot the density of states (energy levels) of graphene using the Andreson
+model.
+
+./c-anderson-(ipr|spacing|states)
+Same as anderson-(ipr|spacing|states), but written in C.
+
+./energies
+Plot the energy graphene as a function of the wavevector (3D plot) using
+an analytic model.
+
+./states
+Plot the density of states (energy levels) of graphene using an analytic
+model.
