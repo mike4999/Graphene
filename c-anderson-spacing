@@ -1,0 +1,9 @@
+#!/bin/sh
+
+./bin/c-anderson --spacing > tmp/c-anderson-spacing.dat
+
+gnuplot --persist << EOD
+set xlabel 'energy spacing'
+set ylabel 'density'
+plot 'tmp/c-anderson-spacing.dat' with lines
+EOD
