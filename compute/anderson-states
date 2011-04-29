@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+import numpy as np
+from anderson import hamiltonian
+
+ham = hamiltonian(16, 16)
+#vals, vecs = np.linalg.eigh(ham)
+vals = np.linalg.eigvalsh(ham)
+hist = np.histogram(vals, bins=50, normed=True)
+offset = (hist[1][1]-hist[1][0])/2.0
+
+with open('tmp/anderson-states.dat', 'w') as f:
+	for freq, val in zip(hist[0], hist[1][:-1]):
+		f.write('%12g %12g\n' % (val+offset, freq))

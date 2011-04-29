@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+
+from anderson import hamiltonian
+import numpy as np
+
+ham = hamiltonian(12, 12)
+vals = np.linalg.eigvalsh(ham)
+vals = np.sort(vals)
+diff = vals[1:] - vals[:-1]
+
+hist = np.histogram(diff, bins=100, normed=True)
+offset = (hist[1][1]-hist[1][0])/2.0
+
+with open('tmp/anderson-spacing.dat', 'w') as f:
+	for freq, val in zip(hist[0], hist[1][:-1]):
+		f.write('%12g %12g\n' % (val+offset, freq))

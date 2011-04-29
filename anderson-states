@@ -1,9 +1,9 @@
 #!/bin/sh
 
-./compute/states
+./compute/anderson-states
 
 gnuplot -persist << EOD
 set xlabel 'energy'
 set ylabel 'density'
-plot 'tmp/states.dat' with lines
+plot 'tmp/anderson-states.dat' with lines
 EOD

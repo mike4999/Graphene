@@ -1,0 +1,9 @@
+#!/bin/sh
+
+./compute/anderson-spacing
+
+gnuplot -persist << EOD
+set xlabel 'energy spacing'
+set ylabel 'density'
+plot 'tmp/anderson-spacing.dat' with lines
+EOD
