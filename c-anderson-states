@@ -2,7 +2,7 @@
 
 ./bin/c-anderson --states > tmp/c-anderson-states.dat
 
-gnuplot --persist << EOD
+gnuplot -persist << EOD
 set xlabel 'energy'
 set ylabel 'density'
 plot 'tmp/c-anderson-states.dat' with lines
