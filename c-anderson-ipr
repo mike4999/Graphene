@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./bin/c-anderson --ipr > tmp/c-anderson-ipr.dat
+./compute/c-anderson --ipr > tmp/c-anderson-ipr.dat
 
 gnuplot -persist << EOD
 set xlabel 'energy'

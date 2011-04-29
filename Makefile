@@ -1,5 +1,9 @@
-all:
-	gcc -o bin/c-anderson `gsl-config --libs --cflags` -lm src/anderson.c
+all: compute/c-anderson
+.PHONY: all
+
+compute/c-anderson:
+	gcc -o compute/c-anderson `gsl-config --libs --cflags` -lm compute/c-anderson.c
 
 clean:
-	rm bin/c-anderson
+	rm compute/c-anderson
+.PHONY: clean
