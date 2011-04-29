@@ -6,15 +6,20 @@ from graphene import wavevector_energy
 import util
 
 # Compute energies
-res = 500j
+res = 1000j
 #kx, ky = np.mgrid[-0:7.5:res, -6.5:6.5:res]
 rng = 100
 kx, ky = np.mgrid[-rng:rng:res, -rng:rng:res]
 e_conduction = wavevector_energy(kx, ky)
 e_valence = wavevector_energy(kx, ky, valence=True)
 
-# Output data
+# Compute histogram
+bincount = 100
 merged = np.array([e_conduction, e_valence]).flatten()
+hist = np.histogram(merged, bins=bincount, normed=True)
+centers = hist[1][:-1] + (hist[1][1]-hist[1][0])/2.0
+
+# Output data
 f = open('tmp/states.dat', 'w')
-for energy in merged:
-	f.write('%12g\n' % (energy,))
+for center, dens in zip(centers, hist[0]):
+	f.write('%12g %12g\n' % (center, dens))
