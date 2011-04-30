@@ -11,7 +11,8 @@ Numpy
 == COMPILATION ==
 
 To use the c-anderson-* scripts, the C program must first be compiled.
-To do so, simply run `make`.
+To do so, simply run `make`. This will also compile the report
+(report/report.pdf) in the process.
 
 
 == USAGE ==
